@@ -1,0 +1,10 @@
+{
+  "name": "us-browser-vnc",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": { "label": "noVNC", "onAutoForward": "notify" }
+  },
+  "postCreateCommand": "bash providers/codespaces/start.sh",
+  "remoteUser": "vscode"
+}
