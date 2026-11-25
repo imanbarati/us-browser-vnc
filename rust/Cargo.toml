@@ -1,0 +1,7 @@
+[package]
+name = "usvnc"
+version = "0.1.0"
+edition = "2021"
+description = "Cross-platform CLI for the US-region noVNC browser stack"
+
+[dependencies]

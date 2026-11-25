@@ -25,6 +25,11 @@ stored anywhere in the repo.
   CLI in a US region.
 - `providers/codespaces/`: devcontainer + `start.sh` for a temporary forwarded
   noVNC session.
+- `rust/`: dependency-free Rust CLI (`usvnc`) with `doctor`, `init`, `up`,
+  `down`, `status`, `providers`, and `guide <provider>` commands.
+- `install.sh`, `install.ps1`: cross-platform install wizards.
+- `account-guide.sh`, `account-guide.ps1`: open signup pages and print checklists;
+  they never ask for or store credentials.
 - `README.md`, `comparison.md`, provider READMEs.
 
 ## Hard boundaries — do not cross
@@ -45,6 +50,9 @@ stored anywhere in the repo.
 - `providers/codespaces/devcontainer.json` parses as JSON.
 - Debian's noVNC package serves `vnc.html` from `/usr/share/novnc`, which the
   entrypoint now checks.
+- `cargo check` passes on the Rust CLI with Rust stable 1.100.0.
+- The MSVC linker is unavailable locally, so the release binary was not linked;
+  MinGW installation was in progress at the time of writing.
 - Git remote and local HEAD match.
 
 ## What is NOT verified
@@ -75,6 +83,11 @@ setup links. No secret storage. Should be deployable to Cloudflare Pages free.
 CI validates shell syntax, JSON/YAML, Dockerfile build (where possible), and
 runs shell unit tests with mocks. No workflow may create real cloud resources
 without an explicit manual dispatch and user secrets.
+
+### Milestone 6 — Cross-platform CLI and install wizards
+Acceptance: `rust/target/release/usvnc.exe` (or platform binary) builds, `doctor`
+reports the host tools correctly, `init` writes `.env` once, and both wizards
+work on their target OS. The account guide opens pages but never handles secrets.
 
 ### Milestone 5 — Optional Neon integration
 Only if the user confirms "Neon" means Neon serverless Postgres: store instance

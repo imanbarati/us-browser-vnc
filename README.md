@@ -74,6 +74,18 @@ providers/codespaces/      devcontainer + start script
 comparison.md              detailed trade-offs
 ```
 
+## Cross-platform CLI and wizards
+
+- `rust/` — dependency-free `usvnc` CLI: `doctor`, `init`, `up`, `down`,
+  `status`, `providers`, `guide <aws|oracle|github|cloudflare>`.
+- `install.sh` — macOS/Linux wizard; `install.ps1` — Windows wizard.
+- `account-guide.sh` / `account-guide.ps1` — open the correct signup pages and
+  print a checklist. They never enter, store or transmit credentials.
+
+Build the CLI with `cargo build --release --manifest-path rust/Cargo.toml`. On
+Windows you need either Visual Studio Build Tools (MSVC linker) or MinGW with a
+Cargo linker configuration. `cargo check` verifies the source without linking.
+
 ## Continuing development with coding agents
 
 - `handoff.md` — current state, hard boundaries, milestones and acceptance criteria.
