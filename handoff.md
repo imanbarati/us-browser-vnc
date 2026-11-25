@@ -51,8 +51,10 @@ stored anywhere in the repo.
 - Debian's noVNC package serves `vnc.html` from `/usr/share/novnc`, which the
   entrypoint now checks.
 - `cargo check` passes on the Rust CLI with Rust stable 1.100.0.
-- The MSVC linker is unavailable locally, so the release binary was not linked;
-  MinGW installation was in progress at the time of writing.
+- MSVC linking failed (no Visual Studio linker), but MinGW was installed and
+  `cargo +stable-x86_64-pc-windows-gnu build --release` produced
+  `rust/target/release/usvnc.exe`. `help`, `providers`, `doctor` and `init`
+  were smoke-tested with a temporary `USVNC_ROOT`.
 - Git remote and local HEAD match.
 
 ## What is NOT verified

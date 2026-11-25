@@ -83,8 +83,13 @@ comparison.md              detailed trade-offs
   print a checklist. They never enter, store or transmit credentials.
 
 Build the CLI with `cargo build --release --manifest-path rust/Cargo.toml`. On
-Windows you need either Visual Studio Build Tools (MSVC linker) or MinGW with a
-Cargo linker configuration. `cargo check` verifies the source without linking.
+Windows, either Visual Studio Build Tools (MSVC linker) or MinGW works; for
+MinGW use `cargo +stable-x86_64-pc-windows-gnu build --release --manifest-path
+rust/Cargo.toml` with MinGW's `bin` directory on PATH. `cargo check` verifies
+the source without linking.
+
+Verified on Windows 11: GNU toolchain 1.100.0 produced `rust/target/release/usvnc.exe`;
+`help`, `providers`, `doctor` and `init` were smoke-tested with a temporary root.
 
 ## Continuing development with coding agents
 
