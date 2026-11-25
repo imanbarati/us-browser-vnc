@@ -74,6 +74,18 @@ providers/codespaces/      devcontainer + start script
 comparison.md              detailed trade-offs
 ```
 
+## Continuing development with coding agents
+
+- `handoff.md` — current state, hard boundaries, milestones and acceptance criteria.
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` — instructions for coding agents.
+- `agents/programs/*.md` — seven staged development programs.
+- `scripts/agent-task.sh` — runner:
+  `bash scripts/agent-task.sh claude agents/programs/01-harden-core.md`
+  or `bash scripts/agent-task.sh gemini agents/programs/01-harden-core.md`.
+
+The agent CLIs must be installed and authenticated by the user. They must not
+create accounts, store credentials, or claim ban immunity.
+
 ## Verification performed
 
 All shell scripts pass `bash -n`; the JSON devcontainer parses; the Compose and
